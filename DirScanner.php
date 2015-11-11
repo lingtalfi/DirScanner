@@ -16,6 +16,11 @@ class DirScanner
     private $rootDir;
     private $followLinks;
 
+    public function __construct()
+    {
+        $this->followLinks = false;
+    }
+
 
     public static function create()
     {
