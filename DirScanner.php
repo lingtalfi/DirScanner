@@ -27,6 +27,20 @@ class DirScanner
         return new static();
     }
 
+    /**
+     * Scan a directory, and collect items (using to the given callable) along the way.
+     * 
+     * @param $dir
+     * @param $callable :   mixed  function ( str:path, str:relativePath, int:level )
+     *
+     *                              level starts at 0.
+     *                              Any value except that the callback returns (except the null value) will 
+     *                              be appended to the returned array.
+     *                              The null value is not collected.
+     * 
+     *
+     * @return array of what the callback returns (except if it is null)
+     */
     public function scanDir($dir, $callable)
     {
         $ret = [];
@@ -76,7 +90,10 @@ class DirScanner
                     else {
                         $rPath = $file;
                     }
-                    $ret[] = call_user_func($callable, $path, $rPath, $level);
+                    if (null !== ($res = call_user_func($callable, $path, $rPath, $level))) {
+                        $ret[] = $res;
+                    }
+                    
                     if (is_dir($path) &&
                         (
                             !is_link($path) ||
