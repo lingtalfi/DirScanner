@@ -95,6 +95,22 @@ a(DirScanner::create()->scanDir($dir, function($path, $rPath, $level){
 ```
 
 
+### Get list of directories  
+
+```php
+<?php
+
+
+use DirScanner\YorgDirScannerTool;
+
+require_once "bigbang.php"; // start the local universe
+
+
+$dirs = YorgDirScannerTool::getDirs("/path/to/dir");
+
+```
+
+
 
 
 
@@ -103,6 +119,10 @@ a(DirScanner::create()->scanDir($dir, function($path, $rPath, $level){
 
 History Log
 ------------------
+    
+- 1.2.0 -- 2016-01-24
+
+    - add YorgDirScannerTool.getDirs
     
 - 1.1.0 -- 2016-01-09
 
