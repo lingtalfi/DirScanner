@@ -120,6 +120,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
     
+- 1.3.0 -- 2016-02-01
+
+    - add YorgDirScannerTool.getFilesWithExtension method
+    
 - 1.2.0 -- 2016-01-24
 
     - add YorgDirScannerTool.getDirs

@@ -3,6 +3,8 @@
 
 namespace DirScanner;
 
+use Bat\FileSystemTool;
+
 
 /**
  * YorgDirScannerTool
@@ -42,11 +44,11 @@ class YorgDirScannerTool
             }
         });
     }
-    
-    
+
+
     /**
      * Return the list of files (not dirs) of a given folder.
-     * 
+     *
      *
      * @param $dir
      * @param bool $recursive
@@ -73,9 +75,52 @@ class YorgDirScannerTool
         });
     }
 
-    
-//    public static function getFilesWithExtension($dir, $extension = null, $recursive = false, $relativePath = false, $followSymlinks = false, $ignoreHidden = true)
-//    {
-//
-//    }
+    /**
+     * Return the list of files (not dirs) of a given folder.
+     *
+     *
+     * @param $dir
+     * @param bool $recursive
+     * @param string|array|null $extension , the allowed extensions;
+     *                                          if null, all extensions are allowed (enhances the tool modularity)
+     *
+     * @param bool $extensionCaseSensitive , whether or not to use case sensitive comparisons for the file extensions
+     * @param bool $relativePath , whether or not to return the results as relative path (default is absolute paths)
+     * @param bool $followSymlinks
+     * @param bool $ignoreHidden
+     * @return array
+     *
+     */
+    public static function getFilesWithExtension($dir, $extension = null, $extensionCaseSensitive = false, $recursive = false, $relativePath = false, $followSymlinks = false, $ignoreHidden = true)
+    {
+        if (is_string($extension)) {
+            $extension = [$extension];
+        }
+        return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level) use ($relativePath, $recursive, $ignoreHidden, $extension, $extensionCaseSensitive) {
+            if (0 === $level || true === $recursive) {
+                if (is_file($path)) {
+                    if (true === $ignoreHidden && 0 === strpos($rPath, '.')) {
+                        return null;
+                    }
+
+                    $ext = FileSystemTool::getFileExtension($path);
+                    if (
+                        null !== $extension &&
+                        (
+                            (true === $extensionCaseSensitive && false === in_array($ext, $extension, true)) ||
+                            (false === $extensionCaseSensitive && false === in_array(strtolower($ext), $extension, true))
+                        )
+                    ) {
+                        return null;
+                    }
+
+
+                    if (true === $relativePath) {
+                        return $rPath;
+                    }
+                    return $path;
+                }
+            }
+        });
+    }
 }

@@ -46,5 +46,40 @@ a(YorgDirScannerTool::getFiles($dir, true, true));
 
 
 
+
+
+getFilesWithExtension
+---------------
+
+Return the files (not dirs) in a given folder, but only if they match the given extension(s).
+
+
+```php
+array  getFiles( str:dir, mixed:extension=null, bool:extensionCaseSensitive=false, bool:recursive = false, bool:relativePath = false, bool:followSymlinks = false, bool:ignoreHidden = true)
+```
+
+string|array|null $extension , the allowed extensions. If null, all extensions are allowed (enhances the tool modularity).
+
+
+Works like the getFiles method above.
+
+
+
+
+getDirs
+---------------
+
+Return the dirs in a given folder.
+
+
+```php
+array  getDirs( str:dir, bool:recursive = false, bool:relativePath = false, bool:followSymlinks = false, bool:ignoreHidden = true)
+```
+
+Works like the getFiles method above.
+
+
+
+
     
 
