@@ -120,6 +120,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
     
+- 1.5.0 -- 2018-06-11
+
+    - add NestedFileTreeHelper class
+    
 - 1.4.1 -- 2017-12-11
 
     - update YorgDirScannerTool.getFilesWithExtension, extension matching system now accepts "long" extensions like "tpl.php"
