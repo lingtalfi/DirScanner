@@ -15,6 +15,9 @@ class NestedFileTreeHelper
      * - path: absolute path to the file,
      *          or relative path if you set the relativePath option to true
      * - children: array of nested structure items, recursively...
+     * - keyName: string=name, the key to use to reference the name
+     * - keyPath: string=path, the key to use to reference the path
+     * - keyChildren: string=children, the key to use to reference the children
      *
      *
      *
@@ -52,6 +55,11 @@ class NestedFileTreeHelper
         $followSymlinks = $options['followSymlinks'] ?? false;
         $recursive = $options['recursive'] ?? true;
         $relativePath = $options['relativePath'] ?? false;
+        $keyName = $options['keyName'] ?? "name";
+        $keyPath = $options['keyPath'] ?? "path";
+        $keyChildren = $options['keyChildren'] ?? "children";
+
+
         $_baseDirLen = $options['_baseDirLen'] ?? null;
 
         $ignoreHidden = $options['ignoreHidden'] ?? true;
@@ -106,9 +114,9 @@ class NestedFileTreeHelper
 
 
                 $item = [
-                    "name" => $file,
-                    "path" => $path,
-                    "children" => $children,
+                    $keyName => $file,
+                    $keyPath => $path,
+                    $keyChildren => $children,
                 ];
                 $ret[] = $item;
             }
