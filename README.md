@@ -120,6 +120,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
     
+- 1.7.0 -- 2018-06-15
+
+    - add YorgDirScannerTool.getFilesWithPrefix method
+    
 - 1.6.0 -- 2018-06-11
 
     - add keyName, keyPath and keyChildren options to NestedFileTreeHelper::getNestedFileTree method
