@@ -1,9 +1,9 @@
 <?php
 
 
-namespace DirScanner;
+namespace Ling\DirScanner;
 
-use Bat\FileSystemTool;
+use Ling\Bat\FileSystemTool;
 
 
 /**
