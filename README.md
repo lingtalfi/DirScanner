@@ -148,6 +148,11 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
     
+- 1.11.0 -- 2019-03-26
+
+    - update YorgDirScannerTool now ignoreHidden can differentiate between ignoring directories or files
+
+
 - 1.10.0 -- 2019-03-21
 
     - add YorgDirScannerTool::getFilesIgnoreMore method
