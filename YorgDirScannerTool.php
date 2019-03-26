@@ -44,7 +44,7 @@ class YorgDirScannerTool
                 if (is_dir($path)) {
 
                     $baseName = basename($rPath);
-                    if (true === $ignoreHidden && 0 === strpos($baseName, '.')) {
+                    if (1 === $ignoreHidden && 0 === strpos($baseName, '.')) {
                         $skipDir = true;
                         return null;
                     }
@@ -89,9 +89,14 @@ class YorgDirScannerTool
 
 
                 $baseName = basename($rPath);
-                if (true === $ignoreHidden && 0 === strpos($baseName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($baseName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
                 if (true === $relativePath) {
@@ -132,9 +137,14 @@ class YorgDirScannerTool
 
 
                 $fileName = basename($rPath);
-                if (true === $ignoreHidden && 0 === strpos($fileName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($fileName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
                 if (is_file($path)) {
@@ -190,9 +200,14 @@ class YorgDirScannerTool
             if (0 === $level || true === $recursive) {
                 $baseName = basename($rPath);
 
-                if (true === $ignoreHidden && 0 === strpos($baseName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($baseName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
 
@@ -251,9 +266,14 @@ class YorgDirScannerTool
             if (0 === $level || true === $recursive) {
                 $baseName = basename($rPath);
 
-                if (true === $ignoreHidden && 0 === strpos($baseName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($baseName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
 
@@ -306,9 +326,14 @@ class YorgDirScannerTool
 
 
                 $baseName = basename($rPath);
-                if (true === $ignoreHidden && 0 === strpos($baseName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($baseName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
 
@@ -366,9 +391,14 @@ class YorgDirScannerTool
             if (0 === $level || true === $recursive) {
 
                 $fileName = basename($rPath);
-                if (true === $ignoreHidden && 0 === strpos($fileName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($fileName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
 
