@@ -148,6 +148,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
 
+- 1.13.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.13.0 -- 2020-08-18
 
     - add YorgDirScannerTool::getFilesWithName method
