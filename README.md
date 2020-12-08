@@ -148,6 +148,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
 
+- 1.13.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
 - 1.13.1 -- 2020-12-04
 
     - Add lpi-deps.byml file
