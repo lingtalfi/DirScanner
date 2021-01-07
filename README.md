@@ -1,6 +1,6 @@
 DirScanner
 ==============
-2015-11-03 -> 2020-08-18
+2015-11-03 -> 2021-01-07
 
 
 
@@ -148,6 +148,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
 
+- 1.13.3 -- 2021-01-07
+
+    - update YorgDirScannerTool::getFilesIgnore, add collectSymlinks argument
+  
 - 1.13.2 -- 2020-12-08
 
     - Fix lpi-deps not using natsort.
