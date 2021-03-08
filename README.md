@@ -1,6 +1,6 @@
 DirScanner
 ==============
-2015-11-03 -> 2021-03-05
+2015-11-03 -> 2021-03-08
 
 
 
@@ -153,6 +153,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
 
+- 1.13.5 -- 2021-03-08
+
+    - fix YorgDirScannerTool::getFilesWithExtension incorrectly finding file if its name matches the extension 
+  
 - 1.13.4 -- 2021-03-05
 
     - update README.md, add install alternative
